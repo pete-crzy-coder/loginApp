@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+    <style>
+        body {
+            background: #0b0c10;
+            color: #e6e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: sans-serif;
+        }
+
+        .card {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            background: #151821;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #runaway {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid #6c8cff;
+            background: transparent;
+            color: #6c8cff;
+            cursor: pointer;
+            transition: left 0.1s ease, top 0.1s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h2>404 – Page Not Found</h2>
+        <button id="runaway">Return Home</button>
+    </div>
+
+    <script>
+        const btn = document.getElementById("runaway");
+        const card = document.querySelector(".card");
+
+        card.addEventListener("mousemove", (e) => {
+            const rect = btn.getBoundingClientRect();
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            const distance = Math.hypot(
+                mouseX - (rect.left + rect.width / 2),
+                mouseY - (rect.top + rect.height / 2)
+            );
+
+            if (distance < 100) { // triggers when mouse is near
+                const cardRect = card.getBoundingClientRect();
+                const maxX = cardRect.width - rect.width;
+                const maxY = cardRect.height - rect.height;
+
+                const newX = Math.random() * maxX;
+                const newY = Math.random() * maxY;
+
+                btn.style.left = `${newX}px`;
+                btn.style.top = `${newY}px`;
+            }
+        });
+
+        btn.addEventListener("click", () => {
+            window.location.href = "/";
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+{
+    "ignore": [
+        "public/*",
+        "*.test.js",
+        "dist/*",
+        ".well-known/appspecific/*",
+        "node_modules/*",
+        ".html"
+    ],
+    "include": [
+        ".env"
+    ]
+}

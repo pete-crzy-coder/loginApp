@@ -1,0 +1,19 @@
+POST https://localhost:3000/api/posts HTTP/1.1
+
+###
+
+GET https://localhost:3000/api/posts HTTP/1.1
+
+###
+
+GET https://localhost:3000/api/posts/1 HTTP/1.1
+
+###
+
+PUT https://localhost:3000/api/posts/1 HTTP/1.1
+
+###
+
+DELETE https://localhost:3000/api/posts/1 HTTP/1.1
+
+###

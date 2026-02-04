@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "0xProto Nerd Font";
+    src:
+        url("https://pete-crzy-coder.github.io/assets.crazycoder/fonts/0xProtoNerdFont-Regular.woff2") format("woff2"),
+        url("https://pete-crzy-coder.github.io/assets.crazycoder/fonts/0xProtoNerdFont-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

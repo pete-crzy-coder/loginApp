@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login App</title>
+    <link rel="stylesheet" href="css/0xprotonerdfont.css">
+    <style>
+        :root {
+            --bg: #0e0f14;
+            --sidebar: #151821;
+            --accent: #6c8cff;
+            --text: #e6e8f0;
+            --muted: #9aa0b3;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "0xProto Nerd Font", Inter, system-ui, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+
+        /* Background video */
+        #myVideo {
+            position: fixed;
+            inset: 0;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Main login card */
+        #main {
+            display: grid;
+            gap: 16px;
+            padding: 32px;
+            width: 100%;
+            max-width: 360px;
+            background: rgba(21, 24, 33, 0.85);
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Form layout */
+        #form {
+            display: grid;
+            gap: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        #reminder {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+
+        label {
+            font-size: 12px;
+            text-align: left;
+            color: var(--muted);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        input[type="submit"] {
+            background: var(--accent);
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+    <script src="/js/unstable.js"></script>
+</head>
+
+<body>
+    <video autoplay muted loop id="myVideo" loop>
+        <source src="/media/1.mp4" type="video/mp4">
+    </video>
+    <div id="main">
+        <h1>Sign Up</h1>
+        <form id="form" method="post" action="/api/user/signup">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" autocomplete="on"><br>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" autocomplete="on"><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="submit" value="Sign Up">
+        </form>
+        <p id="reminder">
+            Have an account?
+            <a href="/login">Login.</a>
+        </p>
+    </div>
+</body>
+
+</html>

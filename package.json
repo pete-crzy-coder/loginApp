@@ -1,0 +1,39 @@
+{
+  "name": "blindly-unstable-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "prebuild": "rimraf dist",
+    "build": "esbuild server.js --bundle --platform=node --format=esm --minify --outfile=dist/server.min.mjs",
+    "postbuild": "cp .env dist/.env && cp "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pete-crzy-coder/Blindly-Unstable-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/pete-crzy-coder/Blindly-Unstable-backend/issues"
+  },
+  "homepage": "https://github.com/pete-crzy-coder/Blindly-Unstable-backend#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "morgan": "^1.10.1",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.6",
+    "@types/uuid": "^10.0.0"
+  }
+}
