@@ -1,5 +1,5 @@
 {
-  "name": "blindly-unstable-backend",
+  "name": "login_app",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -13,16 +13,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pete-crzy-coder/Blindly-Unstable-backend.git"
+    "url": "git+https://github.com/pete-crzy-coder/loginApp.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/pete-crzy-coder/Blindly-Unstable-backend/issues"
+    "url": "https://github.com/pete-crzy-coder/loginApp/issues"
   },
-  "homepage": "https://github.com/pete-crzy-coder/Blindly-Unstable-backend#readme",
+  "homepage": "https://github.com/pete-crzy-coder/loginApp#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "dotenv": "^17.2.3",

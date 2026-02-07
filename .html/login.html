@@ -75,6 +75,11 @@
             color: var(--muted);
         }
 
+        #bob {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
         input[type="text"],
         input[type="password"],
         input[type="submit"] {
@@ -105,8 +110,30 @@
             <label for="auth">Username / Email:</label>
             <input type="text" id="auth" name="auth" autocomplete="on"><br>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password"><br>
-            Forgot ur password? Well I can’t do anything about it! me:😊u:😒me:😏<br>
+            <input type="password" id="password" name="password">
+            <p id="bob"></p>
+            <script>
+                const bob = document.getElementById("bob");
+                const humour = [
+                    '<b>Forgot your password?</b><br>Yeah… that’s between you and past-you 😌',
+                    '<b>Forgot your password?</b><br>Tragic. Truly. 😏',
+                    '<b>Forgot your password?</b><br>Skill issue. 😎',
+                    '<b>Forgot your password?</b><br>Well, if you can’t remember it, I can’t help you. 😶‍🌫️',
+                    '<b>Forgot your password?</b><br>That’s rough. 😔',
+                    '<b>Forgot your password?</b><br>Time to make a new one! 🥳 (Which is not possible)',
+                    '<b>Forgot your password?</b><br>Happens to the best of us. Unfortunately.',
+                    '<b>Forgot your password?</b><br>That sounds like a <i>you</i> problem.',
+                    '<b>Forgot your password?</b><br>Don’t worry, it happens to everyone. Just not to me. 😎',
+                    '<b>Forgot your password?</b><br>It’s okay, you can just reset it! Oh wait, you can’t. 😬',
+                    '<b>Forgot your password?</b><br>Well, that’s not good. 😕',
+                    '<b>Forgot your password?</b><br>Maybe try remembering it? Just a thought. 🤔',
+                    '<b>Forgot your password?</b><br>That’s unfortunate. 😢',
+                    '<b>Forgot your password?</b><br>It’s like you don’t even know yourself. 😶‍🌫️',
+                    '<b>Forgot your password?</b><br>Well, that’s a shame. 😞',
+                    '<b>Forgot your password?</b><br>Maybe try writing it down next time? Just a suggestion. 📝',
+                ]
+                bob.innerHTML = humour[Math.floor(Math.random() * humour.length)];
+            </script>
             <input type="submit" value="Login">
         </form>
         <p id="reminder">

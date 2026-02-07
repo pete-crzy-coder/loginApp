@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Login App</title>
-    <link rel="stylesheet" href="css/0xprotonerdfont.css">
+    <link rel='stylesheet' href='css/0xprotonerdfont.css'>
     <style>
         :root {
             --bg: #0e0f14;
@@ -19,7 +19,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: "0xProto Nerd Font", Inter, system-ui, sans-serif;
+            font-family: '0xProto Nerd Font', Inter, system-ui, sans-serif;
         }
 
         body {
@@ -60,6 +60,23 @@
             gap: 10px;
         }
 
+        .bob {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .bad {
+            color: red;
+        }
+
+        .alright {
+            color: orange;
+        }
+
+        .good {
+            color: green;
+        }
+
         h1 {
             font-size: 28px;
         }
@@ -76,10 +93,10 @@
             color: var(--muted);
         }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="submit"] {
+        input[type='text'],
+        input[type='email'],
+        input[type='password'],
+        input[type='submit'] {
             width: 100%;
             padding: 10px;
             border: none;
@@ -88,33 +105,122 @@
             font-size: 15px;
         }
 
-        input[type="submit"] {
+        input[type='submit'] {
             background: var(--accent);
             color: white;
             cursor: pointer;
         }
     </style>
-    <script src="/js/unstable.js"></script>
+    <script src='/js/unstable.js'></script>
 </head>
 
 <body>
-    <video autoplay muted loop id="myVideo" loop>
-        <source src="/media/1.mp4" type="video/mp4">
+    <video autoplay muted loop id='myVideo' loop>
+        <source src='/media/1.mp4' type='video/mp4'>
     </video>
-    <div id="main">
+    <div id='main'>
         <h1>Sign Up</h1>
-        <form id="form" method="post" action="/api/user/signup">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" autocomplete="on"><br>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" autocomplete="on"><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password"><br><br>
-            <input type="submit" value="Sign Up">
+        <form id='form' method='post' action='/api/user/signup'>
+            <label for='email'>Email:</label>
+            <input type='email' id='email' name='email' autocomplete='on'><br>
+            <label for='username'>Username:</label>
+            <input type='text' id='username' name='username' autocomplete='on'><br>
+            <label for='password'>Password:</label>
+            <input type='password' id='password' name='password'>
+            <p class='bob'></p>
+            <script>
+                const humour = [
+                    'Bob is judging your password.',
+                    'Bob thinks that password is weak.',
+                    'Bob is disappointed in your password choice.',
+                    'Bob has seen stronger passwords on a sticky note.',
+                    'Bob is not impressed.',
+                    'Bob is silently judging you.',
+                    'Bob hopes you have a good reason for that password.',
+                    'Bob is concerned about your security habits.',
+                    'Bob is questioning your decision-making skills.',
+                    'Bob wonders if you typed that on purpose.',
+                    'Bob recommends at least one more character. Maybe two.',
+                    'Bob has already guessed it.',
+                    'Bob sighed. Audibly.',
+                    'Bob expected better from you.',
+                    'Bob is crying on the inside.',
+                    'Bob is considering retirement.',
+                    'Bob is disappointed, but not surprised.',
+                    'Bob is questioning his life choices.',
+                    'Bob thinks a toddler could have a stronger password.',
+                    'Bob is not your friend anymore.',
+                ];
+                const alright = [
+                    'Bob thinks this password is… acceptable.',
+                    'Bob has seen worse. Unfortunately, he has also seen better.',
+                    'Bob is mildly reassured, but still uneasy.',
+                    'Bob rates this password a solid \'meh\'.',
+                    'Bob wouldn’t panic, but he wouldn’t relax either.',
+                    'Bob thinks this password is trying its best.',
+                    'Bob considers this password technically fine, emotionally disappointing.',
+                    'Bob shrugs. That’s the review.',
+                    'Bob says this password will survive casual attacks. No promises.',
+                    'Bob thinks you stopped trying halfway through.',
+                    'Bob gives a cautious nod of approval.',
+                    'Bob feels conflicted about this password.',
+                    'Bob trusts this password… a little.',
+                    'Bob says it’s fine, but says it like it hurts.',
+                ]
+                const good = [
+                    'Bob approves of your password, but wishes you are going to get hacked.',
+                    'Bob thinks that password is strong, and will share it out to the world.',
+                    'Bob is impressed, but will still try to hack you.',
+                    'Bob is plotting revenge for all the weak passwords he’s seen.',
+                    'Bob is impressed, but also concerned that you might be a hacker yourself.',
+                    'Bob thinks this password is strong enough to protect your cat videos.',
+                    'Bob is typing furiously, trying to find a way to break this password.',
+                    'Bob is sweating. This password is a challenge.',
+                    'Bob is admiring your password, but also plotting ways to crack it just for the fun of it.',
+                    'Bob thinks this password is strong, but also a little bit show-offy.',
+                    'Bob is impressed, but also a little bit jealous of your password.',
+                    'Bob is yelling at his computer, trying to find a way to break this password.',
+                ]
+                const bobEl = document.querySelector('.bob'); // or querySelector
+                const passwordInput = document.getElementById('password');
+
+                function bob() {
+                    let val = passwordInput.value;
+                    let strength = 0;
+
+                    if (val.length >= 8) strength++;
+                    if (/[0-9]/.test(val)) strength++;
+                    if (/[A-Z]/.test(val)) strength += 0.5;
+                    if (/[a-z]/.test(val)) strength += 0.5;
+                    if (/[^A-Za-z0-9]/.test(val)) strength++;
+
+                    if (val.length === 0) {
+                        bobEl.textContent = 'Bob is watching you.';
+                        bobEl.className = 'bob';
+                        return;
+                    }
+
+                    if (strength <= 1) {
+                        bobEl.textContent = humour[Math.floor(Math.random() * humour.length)];
+                        bobEl.className = 'bad';
+                    } else if (strength <= 2) {
+                        bobEl.textContent = alright[Math.floor(Math.random() * alright.length)];
+                        bobEl.className = 'alright';
+                    } else {
+                        bobEl.textContent = good[Math.floor(Math.random() * good.length)];
+                        bobEl.className = 'good';
+                    }
+                }
+
+                passwordInput.addEventListener('input', bob);
+                bobEl.textContent = 'Bob is is watching you.';
+                bobEl.className = 'bob';
+            </script>
+            <input type='submit' value='Sign Up'>
         </form>
-        <p id="reminder">
+        <p id='reminder'>
             Have an account?
-            <a href="/login">Login.</a>
+            <a href='/login'>Login.</a>
         </p>
     </div>
 </body>
