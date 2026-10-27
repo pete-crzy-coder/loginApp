@@ -131,8 +131,20 @@
                     '<b>Forgot your password?</b><br>It’s like you don’t even know yourself. 😶‍🌫️',
                     '<b>Forgot your password?</b><br>Well, that’s a shame. 😞',
                     '<b>Forgot your password?</b><br>Maybe try writing it down next time? Just a suggestion. 📝',
+                    '<b>Forgot your password?</b><br>Mabybe it was \'BobIsTheBest\'? Just a wild guess. 😏',
+                    '<b>Forgot your password?</b><br>Go ask Bob!',
+                    '<b>Forgot your password?</b><br>Bob is judging you. 😒',
                 ]
                 bob.innerHTML = humour[Math.floor(Math.random() * humour.length)];
+                if (bob.innerHTML.includes('Bob')) {
+                    const bobby = bob.innerHTML;
+                    bob.onclick = () => {
+                        bob.innerHTML = 'Bob is everywhere. 😒<br><br>';
+                        setTimeout(() => {
+                            bob.innerHTML = bobby;
+                        }, 1000);
+                    }
+                }
             </script>
             <input type="submit" value="Login">
         </form>

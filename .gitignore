@@ -45,3 +45,9 @@ temp/
 *.pem
 *.key
 *.crt
+
+# =========================
+# Random stuff that will be embarrassing if committed
+# =========================
+*.███
+www.duckdns.org

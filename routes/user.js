@@ -59,7 +59,7 @@ router.post('/signup', async (req, res, next) => {
             await findStringInJsonField(path.join(__dirname, '..', 'users'), 'username', req.body.username);
 
         if (found) {
-            return res.status(409).json({ message: 'Nope' });
+            return res.status(409).json({ message: 'Nope. Ur ugly face is already in our system.' });
         }
 
         const salt = await bcrypt.genSalt(10);
